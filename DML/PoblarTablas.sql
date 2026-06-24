@@ -1,0 +1,35 @@
+/** INSERCCION DE DATOS  **/
+
+USE BdRamadaValluna
+GO
+
+BEGIN TRY 
+	BEGIN TRANSACTION 
+
+		INSERT INTO tbEmpleados (Nombre, Apellido, id_Cargo,Telefono, FechaContrato)
+		VALUES  ('LUCERO ADRIANA', 'BALCAZAR CAMPO',1,'3176032884','2022-06-15'),
+				('DANIEL FELIPE', 'GETIAL PULGARIN', 1 , '3104692336', GETDATE()),
+				('ERIKA ANDREA', 'VARGAS GUASAQUILLO', 1, '3001234567', '2020-01-15'),
+				('JEFFERSON', 'TIMANA', 1, '3012345678', '2022-08-22'),
+				('KEVIN ALEXIS', 'POOL', 1, '3023456789', '2021-03-10');
+	COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+
+    SELECT
+        ERROR_NUMBER() AS Numero,
+        ERROR_MESSAGE() AS Mensaje,
+        ERROR_LINE() AS Linea;
+
+    IF @@TRANCOUNT > 0
+        ROLLBACK TRANSACTION;
+
+END CATCH
+--DBCC CHECKIDENT ('tbEmpleados', RESEED, 0);
+--DELETE tbEmpleados
+--select @@TRANCOUNT 
+
+
+SELECT E.Nombre, E.Apellido, C.NombreCargo AS Cargo
+FROM tbEmpleados E
+INNER JOIN tbCargo C ON E.id_Cargo = C.id_Cargo

@@ -1,0 +1,52 @@
+--- PROYECTO DE BASE DE DATOS DE RESTAURANTE
+-- Creacion de la BDRamada
+USE master
+GO
+IF EXISTS (SELECT * FROM sysdatabases WHERE NAME = 'BdRamadaValluna')
+	DROP DATABASE BdRamadaValluna
+GO
+-- C:\RAMADA_DATA
+CREATE DATABASE BdRamadaValluna
+ON PRIMARY
+	(NAME = BdRamadaValluna_data,
+	 FILENAME = 'C:\RAMADA_DATA\BdRamadaValluna.mdf',
+	 SIZE = 10MB,
+	 MAXSIZE = 100MB,
+	 FILEGROWTH = 5MB)
+LOG ON
+	(NAME = BdRamadaValluna_log,
+	 FILENAME = 'C:\RAMADA_DATA\BdRamadaValluna.ldf',
+	 SIZE = 5MB,
+	 MAXSIZE = 10MB,
+	 FILEGROWTH = 5%)
+GO
+
+-- EXEC sp_helpdb BdRamadaValluna
+
+-- PRIMER FILEGROUP FG_MAESTRO
+ALTER DATABASE BdRamadaValluna
+	ADD FILEGROUP FG_MAESTRO
+
+ALTER DATABASE BdRamadaValluna
+ADD FILE 
+	(NAME = BdRamadaValluna_data1,
+	FILENAME = 'C:\RAMADA_DATA\BdRamadaValluna1.ndf',
+	SIZE = 15MB,
+	MAXSIZE = 70MB,
+	FILEGROWTH = 10%
+	) TO FILEGROUP FG_MAESTRO
+
+-- SEGUNDO FILEGROUP FG_VENTAS
+ALTER DATABASE BdRamadaValluna
+	ADD FILEGROUP FG_VENTAS
+
+ALTER DATABASE BdRamadaValluna
+ADD FILE 
+	(NAME = BdRamadaValluna_data2,
+	FILENAME = 'C:\RAMADA_DATA\BdRamadaValluna2.ndf',
+	SIZE = 15MB,
+	MAXSIZE = 70MB,
+	FILEGROWTH = 10%
+	) TO FILEGROUP FG_VENTAS
+
+-- 	SELECT * FROM sys.filegroups 
