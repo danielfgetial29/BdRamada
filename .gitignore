@@ -1,0 +1,24 @@
+# ==========================================
+# IGNORAR ARCHIVOS DE BASES DE DATOS Y RESPALDOS
+# ==========================================
+
+*.mdf
+*.ndf
+*.ldf
+*.bak
+
+# ==========================================
+# IGNORAR EXPORTACIONES DE DATOS (SEGURIDAD)
+# ==========================================
+*.csv
+*.xlsx
+*.txt
+
+# ==========================================
+# IGNORAR ARCHIVOS TEMPORALES DE SSMS
+# ==========================================
+*.suo
+*.user
+*.sqlproj.user
+~*.sql
+*.log
