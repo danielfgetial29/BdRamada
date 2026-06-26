@@ -10,26 +10,24 @@ BEGIN TRY
 	BEGIN TRANSACTION 
     
 		INSERT INTO tbMenu(id_Categoria,Producto, Precio)
-		VALUES  (1, 'Bandeja Paisa', 44.000),                   (1, 'Costilla San Luis a la BBQ', 46.000),
-                (1, 'Sancocho con Pollo', 42.000),              (1, 'Pechuga de pollo a la parrilla', 42.000),    
-                (1, 'Sancocho de Gallina', 42.000),             (1, 'Picada especial', 200.000),
-                (1, 'Churrasco', 48.000),                       (1, 'Picada mediana', 120.000),
-                (1, 'Sobrebarriga Criolla', 44.000),            (1, 'Parrilla campestre tres carnes', 54.000),   
-                (1, 'Sancocho trifásico con Pollo', 44.000),    (1, 'Plato vegetariano', 30.000),
-                (1, 'Sancocho trifásico con Gallina', 44.000),
-                (1, 'Chuleta de Cerdo', 42.000),
-                (1, 'Chuleta de Pllo', 42.000),
-                (1, 'Chuletón a la plancha', 42.000),
-                (1,'Baby beef', 52.000),
-                (1, 'Bife chorizo a la parrilla',48.000),
-                (1, 'Sobrebarriga a la planca', 44.000),
-                (1, 'Costillón montañero',48.000),
-                (1,'Salmón a la parrilla',52.000),
-                (1, 'Tilapia a la parrilla', 48.000),
-                (1, 'Trucha a la parrilla o frita', 46.000),
-                (1, 'Plato Infantil',30.000),
-                (1, 'Punta de Anca', 48.000);
-	COMMIT TRANSACTION
+		VALUES  (3, 'Chocolate en leche', 6.000),                   (3, 'Vaso de mandarina', 12.000),
+                (3, 'Chocolate con queso', 10.000),                 (3, 'Jarra de mandarina', 34.000),
+                (3, 'Jugos natural de la casa - Vaso', 12.000),     (3, 'Vaso de Naranja', 10.000),
+                (3, 'Jugos natural de la casa - Jarra', 32.000),    (3, 'Jarra de Naranja', 34.000),
+                (3, 'Jugo Natural - Vaso', 10.000),                 (3, 'Vaso de Limonada natural', 12.000),
+                (3, 'Jugo Natural en Leche - Vaso', 12.000),        (3, 'Jarra de Limonada natural', 24.000),
+                (3, 'Jugo Natural en Leche - Jarra', 30.000),       (3, 'Media Jarra de Limonada natural',10.000),
+                (3, 'Jugo Natural en Agua - Jarra', 32.000),        (3, 'Jarra de Lulada',42.000),
+                (3, 'Copa de Limonada cerezada',14.000),            (3, 'Jarra de Limonada cerezada',38.000),
+                (3, 'Copa de Limonada coco',14.000),                (3, 'Jarra de Limonada Coco', 38.000),
+                (3, 'Copa Limonada kiwi',14.000),                   (3, 'Jarra de Limonada Kiwi', 38.000),
+                (3, 'Copa Limonada mango viche',14.000),            (3, 'Jarra Limonada mango viche', 38.000),
+                (3, 'Soda Italiana Frutos rojos', 16.000),          (3, 'Jarra Limonada de hierbabuena',38.000),
+                (3, 'Soda Italiana Maracuya',16.000),               (3, 'Soda Italiana Kiwi', 16.000),
+                (3, 'Soda Italiana Lulo',16.000),                   (3, 'Rarra de Refajo', 34.000),
+                (3, 'Copa Sangria', 22.000),                        (3, 'Media Jarra Sangria', 40.000),
+                (3, 'Jarra Sangria',70.000),                        (3, 'Cervezas', 8.000),
+                (3, 'Copa de Lulada', 16.000);
 END TRY
 BEGIN CATCH
 
