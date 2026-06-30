@@ -1,4 +1,4 @@
-/** SCRIPT DE CONSULTAS  **/
+/** SCRIPT DE CONSULTAS  consultas_busquedas.sql **/
 /*
 	---* En este script registrare las diferentes consultas que realice a mis tablas
 	incluire inner join, lef, right join y diferentes consultas que vaya aprendiendo

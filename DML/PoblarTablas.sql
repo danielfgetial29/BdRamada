@@ -10,12 +10,10 @@ BEGIN TRY
 	BEGIN TRANSACTION 
     
 		INSERT INTO tbMenu(id_Categoria,Producto, Precio)
-		VALUES  (2, 'Carne asada', 28.000),                  (2, 'Huevos Rancheros', 15.000),
-                (2, 'Calentado Cacerola', 20.000),           (2, 'Calentado Revuelto', 20.000), 
-                (2, 'Calentado Perico', 20.000),             (2, 'Calentado Ranchero', 20.000),                      
-                (2, 'Omelette', 20.000),                     (2, 'Huevos Pericos', 15.000),
-                (2, 'Huevos Revueltos', 15.000),             (2, 'Huevos Cacerola', 34.000),
-                (2, 'Areppa queso', 5.000);
+		VALUES  (4, 'Copa de helado', 12.000),                  
+                (4, 'Brownie con helado', 14.000),
+                (4, 'Porcion de Torta',14.000),
+                (4, 'Waffles de nutella', 16.000);
 END TRY
 BEGIN CATCH
 
