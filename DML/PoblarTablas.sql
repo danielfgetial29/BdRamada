@@ -14,6 +14,10 @@ BEGIN TRY
                 (4, 'Brownie con helado', 14.000),
                 (4, 'Porcion de Torta',14.000),
                 (4, 'Waffles de nutella', 16.000);
+
+
+    COMMIT TRANSACTION;
+
 END TRY
 BEGIN CATCH
 
@@ -26,7 +30,6 @@ BEGIN CATCH
         ROLLBACK TRANSACTION;
 
 END CATCH
---DBCC CHECKIDENT ('tbEmpleados', RESEED, 0);
---DELETE tbEmpleados
---select @@TRANCOUNT 
+select * from tbMenu
 
+SELECT @@TRANCOUNT;
