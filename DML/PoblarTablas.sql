@@ -10,10 +10,9 @@ BEGIN TRY
 	BEGIN TRANSACTION 
     
 		INSERT INTO tbMenu(id_Categoria,Producto, Precio)
-		VALUES  (4, 'Copa de helado', 12.000),                  
-                (4, 'Brownie con helado', 14.000),
-                (4, 'Porcion de Torta',14.000),
-                (4, 'Waffles de nutella', 16.000);
+		VALUES  (4, 'Porcion de Torta - Red Velvet',14.000),
+                (4, 'Porcion de Torta - Naranja',14.000);
+                
 
 
     COMMIT TRANSACTION;
@@ -30,6 +29,7 @@ BEGIN CATCH
         ROLLBACK TRANSACTION;
 
 END CATCH
-select * from tbMenu
 
-SELECT @@TRANCOUNT;
+
+--SELECT @@TRANCOUNT;
+--DBCC CHECKIDENT ('tbMenu', RESEED, 25)
