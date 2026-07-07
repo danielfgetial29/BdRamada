@@ -10,8 +10,15 @@ BEGIN TRY
 	BEGIN TRANSACTION 
     
 		INSERT INTO tbMenu(id_Categoria,Producto, Precio)
-		VALUES  (4, 'Porcion de Torta - Red Velvet',14.000),
-                (4, 'Porcion de Torta - Naranja',14.000);
+		VALUES  (6, 'Porcion Tostadas',8.000),
+                (6, 'Bofe ahumado',20.000),
+                (6, 'Bofe ahumado',20.000),
+                (6, 'Costilla ahumada',22.000),
+                (6, 'Morcilla caserá',18.000),
+                (6, 'Marranitas',9.000),
+                (6, 'Chicharrón con chip de plátano',20.000),
+                (6, 'Chorizo santarrosano',12.000),
+                (6, 'Empanadas caseras',16.000);
                 
 
 
