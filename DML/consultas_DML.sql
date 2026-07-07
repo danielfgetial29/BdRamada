@@ -13,8 +13,8 @@ GO
 BEGIN TRY
 	BEGIN TRANSACTION
 	
-		--DELETE FROM tbMesa
-		--WHERE id_Zona = 3 and NumMesa = 1
+		DELETE FROM tbMenu
+		WHERE id_Categoria = 4 
 
 	COMMIT TRANSACTION
 END TRY
