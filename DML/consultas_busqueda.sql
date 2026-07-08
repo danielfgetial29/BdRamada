@@ -21,16 +21,27 @@ SELECT M.id_Mesa,
 FROM tbMesa M
 INNER JOIN tbZona Z ON (M.id_zona = Z.id_Zona)
 --WHERE Z.id_Zona = 9
-order by id_Zona
+order by Z.Zona
 
 --Todos los datos en tbEmpleados
-SELECT id_Empleado, 
-	   id_Cargo, 
-	   Nombre, 
-	   Apellido,
-	   Telefono,
-	   FechaContrato
-FROM tbEmpleados
+--SELECT id_Empleado, 
+--	   id_Cargo, 
+--	   Nombre, 
+--	   Apellido,
+--	   Telefono,
+--	   FechaContrato
+--FROM tbEmpleados
+
+/*-- Consulta para ver que cargo tiene cada empleado y columna Nombre y Apellido concatenadas */
+SELECT	E.id_Empleado, 
+		E.id_Cargo,
+		CONCAT (E.Nombre,' ', E.Apellido) NombreApellido,
+		C.NombreCargo
+FROM tbEmpleados E
+INNER JOIN tbCargo C
+	ON (E.id_Cargo = C.id_Cargo)
+WHERE E.id_Cargo = 1
+ORDER BY C.NombreCargo asc
 
 -- Todos los datos de tbEstadoPedido
 SELECT id_EstadoPedido, NombreEstado
@@ -45,15 +56,6 @@ SELECT id_Menu,
 	   DescripcionP
 FROM tbMenu
 
-/*-- Consulta para ver que cargo tiene cada empleado y columna Nombre y Apellido concatenadas */
-SELECT	E.id_Empleado, 
-		E.id_Cargo,
-		CONCAT (E.Nombre, E.Apellido) NombreApellido,
-		C.NombreCargo
-FROM tbEmpleados E
-INNER JOIN tbCargo C
-	ON (E.id_Cargo = C.id_Cargo)
-ORDER BY C.NombreCargo asc
 
 --- Consulta las diferentes categorias que tenemos en tbmenu
 SELECT DISTINCT id_Categoria
