@@ -13,9 +13,8 @@ GO
 BEGIN TRY
 	BEGIN TRANSACTION
 	
-		UPDATE tbPedidos
-		SET FechaCreacion = GETDATE()
-		WHERE id_Pedido IN (1,3)
+		UPDATE tbMenu
+		SET Precio = Precio * 1000;
 
 	COMMIT TRANSACTION
 END TRY
