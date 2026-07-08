@@ -9,13 +9,13 @@ GO
 BEGIN TRY 
 	BEGIN TRANSACTION 
     
-		INSERT INTO tbPedidos(id_Cliente, id_Mesa, id_Empleado, id_EstadoPedido, FechaCreacion)
-		VALUES  (1, 45, 2, 1, ' '),                 (NULL, 60, 5, 2, '2026-07-08 08:30'),
-                (NULL, 46, 2, 1, ' '),              (4, 47, 2, 2, '2026-07-08 11:57'),
-                (6, 48, 2, 3, '2026-07-08 10:07'),  (NULL, 50, 1, 5, ' 2026-07-08 09:00'),
-                (5, 49, 2, 4, ' 2026-06-08 12:43');
-                
-
+		INSERT INTO tbDetallePedido (id_Pedido, id_Menu, Cantidad, PrecioUnitario)
+		SELECT 1,
+               id_Menu,
+               1,
+               Precio
+        FROM tbMenu
+        WHERE id_Menu = 1
 
     COMMIT TRANSACTION;
 

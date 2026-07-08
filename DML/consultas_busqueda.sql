@@ -56,6 +56,15 @@ SELECT id_Menu,
 	   DescripcionP
 FROM tbMenu
 
+-- Ver TODOS los datos en tbPedidos
+SELECT id_Pedido,
+	   id_Cliente,
+	   id_Mesa,
+	   id_Empleado,
+	   id_EstadoPedido, 
+	   FechaCreacion
+FROM tbPedidos
+
 
 --- Consulta las diferentes categorias que tenemos en tbmenu
 SELECT DISTINCT id_Categoria
