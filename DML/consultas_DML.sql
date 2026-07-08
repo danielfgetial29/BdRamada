@@ -13,8 +13,9 @@ GO
 BEGIN TRY
 	BEGIN TRANSACTION
 	
-		DELETE FROM tbMenu
-		WHERE id_Categoria = 4 
+		UPDATE tbPedidos
+		SET FechaCreacion = GETDATE()
+		WHERE id_Pedido IN (1,3)
 
 	COMMIT TRANSACTION
 END TRY
