@@ -30,7 +30,7 @@ order by Z.Zona
 --	   Apellido,
 --	   Telefono,
 --	   FechaContrato
---FROM tbEmpleados
+--FROM tbEmpleados 
 
 /*-- Consulta para ver que cargo tiene cada empleado y columna Nombre y Apellido concatenadas */
 SELECT	E.id_Empleado, 
