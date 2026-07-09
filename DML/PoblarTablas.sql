@@ -9,11 +9,20 @@ GO
 BEGIN TRY 
 	BEGIN TRANSACTION 
     
-		INSERT INTO tbMenu(id_Categoria,Producto, Precio)
-		VALUES  (4, 'Porcion de Torta - Red Velvet',14.000),
-                (4, 'Porcion de Torta - Naranja',14.000);
-                
-
+		INSERT INTO tbDetallePedido (id_Pedido, id_Menu, Cantidad, PrecioUnitario, Desc_Pedido)
+        SELECT  1 id_Pedido,
+                M.id_Menu,
+                V.Cantidad,
+                M.Precio, 
+                V.Desc_Pedido
+        FROM tbMenu M
+        INNER JOIN
+        (
+            VALUES -- donde creo los valores que necesito 
+                (3,1,NULL),
+                (53,2,'Mora')
+        ) AS V(id_Menu, Cantidad,  Desc_Pedido) -- es el nombre de mis filas que usare
+        ON M.id_Menu = V.id_Menu; -- donde se unen 
 
     COMMIT TRANSACTION;
 
@@ -29,6 +38,7 @@ BEGIN CATCH
         ROLLBACK TRANSACTION;
 
 END CATCH
+
 
 
 --SELECT @@TRANCOUNT;

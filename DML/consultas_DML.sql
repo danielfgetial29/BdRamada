@@ -13,8 +13,8 @@ GO
 BEGIN TRY
 	BEGIN TRANSACTION
 	
-		DELETE FROM tbMenu
-		WHERE id_Categoria = 4 
+		UPDATE tbMenu
+		SET Precio = Precio * 1000;
 
 	COMMIT TRANSACTION
 END TRY

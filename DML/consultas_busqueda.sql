@@ -4,12 +4,49 @@
 	incluire inner join, lef, right join y diferentes consultas que vaya aprendiendo
 */
 
+-- Todos los datos de tbCliente
+SELECT id_Cliente, 
+	   Nombre,
+	   Telefono, 
+	   Email, 
+	   Direccion, 
+	   FechaCreacion
+FROM tbClientes
+
 -- consulta para ver las zonas y todas las mesas de tbMesas
-SELECT M.id_Zona, Z.Zona, M.NumMesa
+SELECT M.id_Mesa, 
+	   Z.Zona,
+	   M.id_Zona, 
+	   M.NumMesa
 FROM tbMesa M
 INNER JOIN tbZona Z ON (M.id_zona = Z.id_Zona)
 --WHERE Z.id_Zona = 9
-order by id_Zona
+order by Z.Zona
+
+--Todos los datos en tbEmpleados
+--SELECT id_Empleado, 
+--	   id_Cargo, 
+--	   Nombre, 
+--	   Apellido,
+--	   Telefono,
+--	   FechaContrato
+--FROM tbEmpleados 
+
+/*-- Consulta para ver que cargo tiene cada empleado y columna Nombre y Apellido concatenadas */
+SELECT	E.id_Empleado, 
+		E.id_Cargo,
+		CONCAT (E.Nombre,' ', E.Apellido) NombreApellido,
+		C.NombreCargo
+FROM tbEmpleados E
+INNER JOIN tbCargo C
+	ON (E.id_Cargo = C.id_Cargo)
+WHERE E.id_Cargo = 1
+ORDER BY C.NombreCargo asc
+
+-- Todos los datos de tbEstadoPedido
+SELECT id_EstadoPedido, NombreEstado
+FROM tbEstadoPedido
+
 
 -- Consulta para ver TODOS los registros de tbMenu
 SELECT id_Menu, 
@@ -18,6 +55,16 @@ SELECT id_Menu,
 	   Precio, 
 	   DescripcionP
 FROM tbMenu
+
+-- Ver TODOS los datos en tbPedidos
+SELECT id_Pedido,
+	   id_Cliente,
+	   id_Mesa,
+	   id_Empleado,
+	   id_EstadoPedido, 
+	   FechaCreacion
+FROM tbPedidos
+
 
 --- Consulta las diferentes categorias que tenemos en tbmenu
 SELECT DISTINCT id_Categoria
@@ -46,3 +93,11 @@ SELECT id_Categoria,
 		NombreCategoria, 
 		Descripcion
 FROM tbCategorias
+
+-- Toda los datos de tbPedidos
+SELECT id_Pedido,
+	   id_Cliente,
+	   id_Mesa, 
+	   id_Empleado,
+	   FechaCreacion
+FROM tbPedidos
