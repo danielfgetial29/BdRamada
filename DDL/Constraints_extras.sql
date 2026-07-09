@@ -26,4 +26,9 @@ ALTER TABLE tbDetallePedido
 -- Cambiar campo NOT NULL por NULL
 AlTER TABLE tbPedidos
 ALTER COLUMN id_Cliente INT  NULL;
+
+-- Añadir nuevo campo en tbDetallePedido
+ALTER TABLE tbDetallePedido
+	ADD Desc_Pedido VARCHAR(250) NULl;
+
 	
