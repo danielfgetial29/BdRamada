@@ -13,8 +13,10 @@ GO
 BEGIN TRY
 	BEGIN TRANSACTION
 	
-		UPDATE tbMenu
-		SET Precio = Precio * 1000;
+		--UPDATE tbMenu
+		--SET Precio = Precio * 1000;
+		DELETE tbDetallePedido
+		WHERE id_DetallePedido IN (3, 4, 5)
 
 	COMMIT TRANSACTION
 END TRY
