@@ -101,3 +101,53 @@ SELECT id_Pedido,
 	   id_Empleado,
 	   FechaCreacion
 FROM tbPedidos
+
+-- Consulta para ver los pedidos con todas sus descripciones
+-- mesero, cliente, productos, etc
+
+SELECT P.id_Pedido,		 C.Nombre AS NombreCliente,
+	   Z.Zona,					     M.NumMesa,
+	   ME.Producto,	
+	   DP.Cantidad,					 DP.PrecioUnitario, 
+	   DP.Desc_Pedido,				 EP.NombreEstado,
+	   E.Nombre + ' '+ E.Apellido AS Mesero
+FROM tbDetallePedido DP
+INNER JOIN tbPedidos P 
+	ON (DP.id_Pedido = P.id_Pedido)
+INNER JOIN tbClientes C
+	ON (P.id_Cliente = C.id_Cliente)
+INNER JOIN tbMesa M
+	ON (P.id_Mesa = M.id_Mesa)
+INNER JOIN tbZona Z
+	ON (M.id_Zona = Z.id_Zona)
+INNER JOIN tbEmpleados E
+	ON (P.id_Empleado = E.id_Empleado)
+INNER JOIN tbEstadoPedido EP
+	ON (P.id_EstadoPedido = EP.id_EstadoPedido)
+INNER JOIN tbMenu ME
+	ON (DP.id_Menu = ME.id_Menu)
+ORDER BY P.id_Pedido;
+
+-- Consulta para ver todos los datos de los pedidos pero VISUALIZAR los pedidos sin CLIENTES
+SELECT P.id_Pedido,		 C.Nombre AS NombreCliente,
+	   Z.Zona,					     M.NumMesa,
+	   ME.Producto,	
+	   DP.Cantidad,					 DP.PrecioUnitario, 
+	   DP.Desc_Pedido,				 EP.NombreEstado,
+	   E.Nombre + ' '+ E.Apellido AS Mesero
+FROM tbDetallePedido DP
+INNER JOIN tbPedidos P 
+	ON (DP.id_Pedido = P.id_Pedido)
+LEFT JOIN tbClientes C
+	ON (P.id_Cliente = C.id_Cliente)
+INNER JOIN tbMesa M
+	ON (P.id_Mesa = M.id_Mesa)
+INNER JOIN tbZona Z
+	ON (M.id_Zona = Z.id_Zona)
+INNER JOIN tbEmpleados E
+	ON (P.id_Empleado = E.id_Empleado)
+INNER JOIN tbEstadoPedido EP
+	ON (P.id_EstadoPedido = EP.id_EstadoPedido)
+INNER JOIN tbMenu ME
+	ON (DP.id_Menu = ME.id_Menu)
+ORDER BY P.id_Pedido;
